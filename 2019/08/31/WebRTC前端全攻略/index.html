@@ -14,7 +14,7 @@
     
     
     
-    <title>WebRTC前端全攻略 | Hexo</title>
+    <title>WebRTC前端全攻略 | 库洛洛Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
@@ -25,7 +25,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="WebRTC前端全攻略">
 <meta property="og:url" content="http://kuuroro.com/2019/08/31/WebRTC%E5%89%8D%E7%AB%AF%E5%85%A8%E6%94%BB%E7%95%A5/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="库洛洛Blog">
 <meta property="og:description" content="一、WebRTC基础介绍什么是webRTCWebRTC 全称是（Web browsers with Real-Time Communications (RTC)大概2011年，谷歌收购了 GIPS，它是一个为 RTC 开发出许多组件的公司，例如编解码和回声消除技术。Google 开源了 GIPS 开发的技术，并希望将其打造为行业标准。  在QQ2004版后，通话质量大有改善，就是采用了GIPS的技">
 <meta property="og:locale" content="zn">
 <meta property="og:image" content="http://kuuroro.com/img/2020-02-15-17-55-55.png">
@@ -65,12 +65,12 @@
 <meta property="og:image" content="http://kuuroro.com/2019/08/31/WebRTC%E5%89%8D%E7%AB%AF%E5%85%A8%E6%94%BB%E7%95%A5/img/2020-02-22-23-03-17.png">
 <meta property="og:image" content="http://kuuroro.com/2019/08/31/WebRTC%E5%89%8D%E7%AB%AF%E5%85%A8%E6%94%BB%E7%95%A5/2020-02-22-23-03-17.png">
 <meta property="article:published_time" content="2019-08-31T04:09:46.000Z">
-<meta property="article:modified_time" content="2020-02-23T03:10:58.701Z">
+<meta property="article:modified_time" content="2020-02-25T16:48:01.200Z">
 <meta property="article:author" content="Kuuroro Chan">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://kuuroro.com/img/2020-02-15-17-55-55.png">
     
-        <link rel="alternate" type="application/atom+xml" title="Hexo" href="/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="库洛洛Blog" href="/atom.xml">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -108,7 +108,7 @@
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">Kuuroro Chan</h5>
-          <a href="mailto:javenchen_sz@163.com" title="javenchen_sz@163.com" class="mail">javenchen_sz@163.com</a>
+          <a href="mailto:javenchen_sz@163.com 腾讯" title="javenchen_sz@163.com 腾讯" class="mail">javenchen_sz@163.com 腾讯</a>
         </hgroup>
       </div>
     </div>
@@ -408,7 +408,7 @@
 <li>RDP（Remote Desktop Protocal）：windows下的桌面共享协议。</li>
 <li>VNC（Virtual Network Console）：在不同的操作系统上共享远程桌面，像 TeamViewer、RealVNC 都是在使用这个协议。</li>
 </ul>
-<h3 id="WebRTC的屏幕分享"><a href="#WebRTC的屏幕分享" class="headerlink" title="WebRTC的屏幕分享"></a>WebRTC的屏幕分享</h3><p>由于webrtc不包含控制部分，因此他的处理过程只使用了视频方式，而不需要信令控制。因此它和 RDP/VNC还是存在差异。</p>
+<h3 id="WebRTC的屏幕分享"><a href="#WebRTC的屏幕分享" class="headerlink" title="WebRTC的屏幕分享"></a>WebRTC的屏幕分享</h3><p>由于webrtc不包含控制部分，因此它的处理过程只使用了视频方式，而不需要信令控制。因此它和 RDP/VNC还是存在差异。</p>
 <ol>
 <li><p>桌面数据的采集<br>在桌面数据采集上，和VNC一样是通过各平台提供的API实现的。<br>BitBlt、Hook、DirectX等。最新的 WebRTC 都是使用的这种方式GetWindowDC：可以通过它来抓取窗口。</p>
 </li>
@@ -492,7 +492,7 @@
 </li>
 <li><p><strong>时戳（timestamp）</strong>：占32位，必须使用90kHZ时钟频率（程序中的90000）。时戳反映了该RTP报文的第一个八位组的采样时刻。接受者使用时戳来计算延迟和延迟抖动，并进行同步控制。可以根据RTP包的时间戳来获得数据包的时序。</p>
 </li>
-<li><p>同步信源（SSRC）标识符：占32位，用于标识同步信源。同步信源是指产生媒体流的信源，他通过RTP报头中的一个32为数字SSRC标识符来标识，而不依赖网络地址，接收者将根据SSRC标识符来区分不同的信源，进行RTP报文的分组。</p>
+<li><p>同步信源（SSRC）标识符：占32位，用于标识同步信源。同步信源是指产生媒体流的信源，它通过RTP报头中的一个32为数字SSRC标识符来标识，而不依赖网络地址，接收者将根据SSRC标识符来区分不同的信源，进行RTP报文的分组。</p>
 </li>
 <li><p>提供信源（CSRC）标识符：每个CSRC标识符占32位，可以有0~15个CSRC。每个CSRC标识了包含在RTP报文有效载荷中的所有提供信源。</p>
 </li>
@@ -510,7 +510,7 @@
 <li>Playload反馈PSFB PT=206</li>
 <li>. . . . .</li>
 </ul>
-<p>这里我们可以关注两个比较重要的的报文：<strong>SR</strong> 和 <strong>RR</strong>,通过他们让收发两端知道网络质量情况。</p>
+<p>这里我们可以关注两个比较重要的的报文：<strong>SR</strong> 和 <strong>RR</strong>,通过它们让收发两端知道网络质量情况。</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -598,7 +598,7 @@
 <p>`a=fmtp:<playload-type> <specific-parameters></p>
 <p>playload-type：数据负载类型。<br>specific-parameters：编码参数。</p>
 </blockquote>
-<h3 id="WebRTC的SDP"><a href="#WebRTC的SDP" class="headerlink" title="WebRTC的SDP"></a>WebRTC的SDP</h3><p>在webrtc中的sdp相对于标准sdp规范中有点不一样，他对于sdp划分了更多部分：</p>
+<h3 id="WebRTC的SDP"><a href="#WebRTC的SDP" class="headerlink" title="WebRTC的SDP"></a>WebRTC的SDP</h3><p>在webrtc中的sdp相对于标准sdp规范中有点不一样，它对于sdp划分了更多部分：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -716,7 +716,7 @@
                 <div class="image-caption"></div>
             </figure>
 
-<p>IP限制锥型更加严格，在完全锥形基础上，只允许Host访问过的IP通过打洞。（映射表多记录了被访问<strong>外网的IP地址</strong>）如图，A和C等其他外网主机想通过B机的打洞IP端口，也是无法和Host通讯。</p>
+<p>IP限制锥型更加严格，在完全锥形基础上，只允许Host访问过的IP通过打洞。（映射表多记录了被访问<strong>外网的IP地址</strong>）如图，A和C等其它外网主机想通过B机的打洞IP端口，也是无法和Host通讯。</p>
 <ol start="3">
 <li><strong>端口限制锥型</strong></li>
 </ol>
@@ -735,7 +735,7 @@
                 <div class="image-caption"></div>
             </figure>
 
-<p>端口限制锥型比IP限制锥型更加严格，IP限制锥型不限制端口。IP限制锥型情况下，同一外网主机的其他端口服务，都能和内网Host通讯。但是端口限制性情况下，只允许外网机器指定的端口服务通过打洞。（映射表多记录了被访问的<strong>外网的IP地址和端口</strong>）</p>
+<p>端口限制锥型比IP限制锥型更加严格，IP限制锥型不限制端口。IP限制锥型情况下，同一外网主机的其它端口服务，都能和内网Host通讯。但是端口限制性情况下，只允许外网机器指定的端口服务通过打洞。（映射表多记录了被访问的<strong>外网的IP地址和端口</strong>）</p>
 <ol start="4">
 <li><strong>对称型</strong></li>
 </ol>
@@ -754,7 +754,7 @@
                 <div class="image-caption"></div>
             </figure>
 
-<p>对称型，是最严格的NAT类型，他一样有IP和端口限制（这点和端口限制锥型一致）。它最大不同在于，每次连接都会在NAT上新开IP地址或者新开IP地址和端口与外网通讯。也就是说每一次NAT的打洞都不相同。基本上对称型NAT是无法穿越的。</p>
+<p>对称型，是最严格的NAT类型，它一样有IP和端口限制（这点和端口限制锥型一致）。它最大不同在于，每次连接都会在NAT上新开IP地址或者新开IP地址和端口与外网通讯。也就是说每一次NAT的打洞都不相同。基本上对称型NAT是无法穿越的。</p>
 <h2 id="NAT类型检测"><a href="#NAT类型检测" class="headerlink" title="NAT类型检测"></a>NAT类型检测</h2><p>下图是在STUN（Session Traversal Utilities for NAT 翻译过来会话穿越NAT实现，可以理解为NAT穿越的算法协议。）中，对于NAT类型检测的流程图。当走到红色结束时：表明穿越失败，无法UDP通讯。当走到绿色（公网地址）或黄色时（锥型NAT）才可能进行通讯。</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -831,7 +831,7 @@
 </li>
 </ol>
 <h3 id="TURN"><a href="#TURN" class="headerlink" title="TURN"></a>TURN</h3><h4 id="标准规范定义-1"><a href="#标准规范定义-1" class="headerlink" title="标准规范定义"></a>标准规范定义</h4><p>TURN，在RFC5766中定义，英文全称Traversal Using Relays around NAT（TURN）：Relay Extensions to Session Traversal Utilities for NAT（STUN），即使用中继穿透NAT：STUN的中继扩展。简单的说，TURN是通过两方通讯的“中间人”方式实现穿透。<br><code>注意：这里Relay 或 TURN 是同一个概念都是值中继型传输。</code></p>
-<h4 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h4><p>当STUN服务检测，发现直接以peer-to-peer的形式连接时，就走TURN方式，使用中间网点提供的中继连接服务。TURN协议就是用来允许主机控制中继的操作并且使用中继与对端交换数据。TURN与其他中继控制协议不同的是它能够允许一个客户端使用一个中继地址与多个对端连接。</p>
+<h4 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h4><p>当STUN服务检测，发现直接以peer-to-peer的形式连接时，就走TURN方式，使用中间网点提供的中继连接服务。TURN协议就是用来允许主机控制中继的操作并且使用中继与对端交换数据。TURN与其它中继控制协议不同的是它能够允许一个客户端使用一个中继地址与多个对端连接。</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -866,7 +866,7 @@
 <ul>
 <li>以一定的优先级将候选地址对进行排序</li>
 <li>以该优先级顺序发送checks请求</li>
-<li>从其他终端接收到checks的确认信息</li>
+<li>从其它终端接收到checks的确认信息</li>
 </ul>
 <h4 id="选定候选项"><a href="#选定候选项" class="headerlink" title="选定候选项"></a>选定候选项</h4><p>　在WebRTC中　P2PTransportChannel会维护连接状态表，并排序表中记录（SortConnectionsAndUpdateState）。<br>　排序指的是计算每条记录的连接“成本”，把成本最低的排在第一位。如何计算成本？则涉及到很多因素，比如发出Stun请求到收到应答耗时，用时越少的“成本”自然会低些。<br>　<br>　当一端有视频Rtp数据要发送时，会检查状态表的第一条记录，如果判断出它的状态是发送就绪，就会用此Connection进行发送。否则直接放弃这个发送任务。
 　</p>
@@ -1004,7 +1004,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2020-02-23T03:10:58.701Z" itemprop="dateUpdated">2020-02-23 11:10:58</time>
+    Last updated: <time datetime="2020-02-25T16:48:01.200Z" itemprop="dateUpdated">2020-02-26 00:48:01</time>
 </span><br>
 
 
@@ -1036,7 +1036,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://kuuroro.com/2019/08/31/WebRTC%E5%89%8D%E7%AB%AF%E5%85%A8%E6%94%BB%E7%95%A5/&title=《WebRTC前端全攻略》 — Hexo&pic=http://kuuroro.com/img/avatar.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://kuuroro.com/2019/08/31/WebRTC%E5%89%8D%E7%AB%AF%E5%85%A8%E6%94%BB%E7%95%A5/&title=《WebRTC前端全攻略》 — 库洛洛Blog&pic=http://kuuroro.com/img/avatar.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1046,7 +1046,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://kuuroro.com/2019/08/31/WebRTC%E5%89%8D%E7%AB%AF%E5%85%A8%E6%94%BB%E7%95%A5/&title=《WebRTC前端全攻略》 — Hexo&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://kuuroro.com/2019/08/31/WebRTC%E5%89%8D%E7%AB%AF%E5%85%A8%E6%94%BB%E7%95%A5/&title=《WebRTC前端全攻略》 — 库洛洛Blog&source=kuurorochan javenchen blog 技术博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1056,7 +1056,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《WebRTC前端全攻略》 — Hexo&url=http://kuuroro.com/2019/08/31/WebRTC%E5%89%8D%E7%AB%AF%E5%85%A8%E6%94%BB%E7%95%A5/&via=http://kuuroro.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《WebRTC前端全攻略》 — 库洛洛Blog&url=http://kuuroro.com/2019/08/31/WebRTC%E5%89%8D%E7%AB%AF%E5%85%A8%E6%94%BB%E7%95%A5/&via=http://kuuroro.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -1188,7 +1188,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://kuuroro.com/2019/08/31/WebRTC%E5%89%8D%E7%AB%AF%E5%85%A8%E6%94%BB%E7%95%A5/&title=《WebRTC前端全攻略》 — Hexo&pic=http://kuuroro.com/img/avatar.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://kuuroro.com/2019/08/31/WebRTC%E5%89%8D%E7%AB%AF%E5%85%A8%E6%94%BB%E7%95%A5/&title=《WebRTC前端全攻略》 — 库洛洛Blog&pic=http://kuuroro.com/img/avatar.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1198,7 +1198,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://kuuroro.com/2019/08/31/WebRTC%E5%89%8D%E7%AB%AF%E5%85%A8%E6%94%BB%E7%95%A5/&title=《WebRTC前端全攻略》 — Hexo&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://kuuroro.com/2019/08/31/WebRTC%E5%89%8D%E7%AB%AF%E5%85%A8%E6%94%BB%E7%95%A5/&title=《WebRTC前端全攻略》 — 库洛洛Blog&source=kuurorochan javenchen blog 技术博客" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1208,7 +1208,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《WebRTC前端全攻略》 — Hexo&url=http://kuuroro.com/2019/08/31/WebRTC%E5%89%8D%E7%AB%AF%E5%85%A8%E6%94%BB%E7%95%A5/&via=http://kuuroro.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《WebRTC前端全攻略》 — 库洛洛Blog&url=http://kuuroro.com/2019/08/31/WebRTC%E5%89%8D%E7%AB%AF%E5%85%A8%E6%94%BB%E7%95%A5/&via=http://kuuroro.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
