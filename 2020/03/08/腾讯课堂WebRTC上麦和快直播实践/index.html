@@ -32,11 +32,12 @@
 <meta property="og:image" content="http://kuuroro.com/2020/03/08/%E8%85%BE%E8%AE%AF%E8%AF%BE%E5%A0%82WebRTC%E4%B8%8A%E9%BA%A6%E5%92%8C%E5%BF%AB%E7%9B%B4%E6%92%AD%E5%AE%9E%E8%B7%B5/2020-03-09-00-00-10.gif">
 <meta property="og:image" content="http://kuuroro.com/2020/03/08/%E8%85%BE%E8%AE%AF%E8%AF%BE%E5%A0%82WebRTC%E4%B8%8A%E9%BA%A6%E5%92%8C%E5%BF%AB%E7%9B%B4%E6%92%AD%E5%AE%9E%E8%B7%B5/2020-03-08-22-09-39.png">
 <meta property="og:image" content="http://kuuroro.com/2020/03/08/%E8%85%BE%E8%AE%AF%E8%AF%BE%E5%A0%82WebRTC%E4%B8%8A%E9%BA%A6%E5%92%8C%E5%BF%AB%E7%9B%B4%E6%92%AD%E5%AE%9E%E8%B7%B5/2020-03-08-22-27-17.png">
+<meta property="og:image" content="http://kuuroro.com/2020/03/08/%E8%85%BE%E8%AE%AF%E8%AF%BE%E5%A0%82WebRTC%E4%B8%8A%E9%BA%A6%E5%92%8C%E5%BF%AB%E7%9B%B4%E6%92%AD%E5%AE%9E%E8%B7%B5/img/2020-03-10-00-14-18.png">
 <meta property="og:image" content="http://kuuroro.com/2020/03/08/%E8%85%BE%E8%AE%AF%E8%AF%BE%E5%A0%82WebRTC%E4%B8%8A%E9%BA%A6%E5%92%8C%E5%BF%AB%E7%9B%B4%E6%92%AD%E5%AE%9E%E8%B7%B5/2020-03-10-00-14-18.png">
 <meta property="og:image" content="http://kuuroro.com/2020/03/08/%E8%85%BE%E8%AE%AF%E8%AF%BE%E5%A0%82WebRTC%E4%B8%8A%E9%BA%A6%E5%92%8C%E5%BF%AB%E7%9B%B4%E6%92%AD%E5%AE%9E%E8%B7%B5/2020-03-09-13-12-14.png">
 <meta property="og:image" content="http://kuuroro.com/2020/03/08/%E8%85%BE%E8%AE%AF%E8%AF%BE%E5%A0%82WebRTC%E4%B8%8A%E9%BA%A6%E5%92%8C%E5%BF%AB%E7%9B%B4%E6%92%AD%E5%AE%9E%E8%B7%B5/2020-03-09-14-07-10.png">
 <meta property="article:published_time" content="2020-03-08T09:30:07.000Z">
-<meta property="article:modified_time" content="2020-03-15T12:18:29.039Z">
+<meta property="article:modified_time" content="2020-03-22T08:53:39.319Z">
 <meta property="article:author" content="Kuuroro Chan">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://kuuroro.com/2020/03/08/%E8%85%BE%E8%AE%AF%E8%AF%BE%E5%A0%82WebRTC%E4%B8%8A%E9%BA%A6%E5%92%8C%E5%BF%AB%E7%9B%B4%E6%92%AD%E5%AE%9E%E8%B7%B5/img/2020-03-09-00-00-10.gif">
@@ -139,7 +140,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -270,10 +271,17 @@
 </blockquote>
 <h3 id="举手上麦的整体业务-SDK调用流程"><a href="#举手上麦的整体业务-SDK调用流程" class="headerlink" title="举手上麦的整体业务+SDK调用流程"></a>举手上麦的整体业务+SDK调用流程</h3><p>在大房的互动直播中，最多只能支持6名学生同时上麦。在一个班级房间中，绝大部分学生的大部分时间都只是收看的，只有当老师允许举手时，学生才能举手并上台发言。</p>
 <p>在获取腾讯云WebRTC签名进房时，还要对”只收看“和”要上台发言“的两部分学生，区分调整权限参数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> WEBRTCRIGHTFLAG = &#123;</span><br><span class="line">    ALL: <span class="number">255</span>, <span class="comment">// 所有权限，可以上行</span></span><br><span class="line">    WATCH: <span class="number">171</span>, <span class="comment">// 只能下行</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">const</span> params = &#123;</span><br><span class="line">    uint32_sdk_appid: CLOUDSDKAPPID,</span><br><span class="line">    uint32_term_id: termId,</span><br><span class="line">    <span class="comment">// 判断只是收看，还是需要互动上麦</span></span><br><span class="line">    uint64_want_privilege_map: !<span class="keyword">this</span>.needGetAllRight ? WEBRTCRIGHTFLAG.WATCH : WEBRTCRIGHTFLAG.ALL,</span><br><span class="line">    uint32_platform: PLATFORM.WEB,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> getSigUrl = <span class="string">`/cgi-proxy/txcloud/GetTlsPrivilege?<span class="subst">$&#123;serializeUrlParameFromObj(params)&#125;</span>`</span>;</span><br><span class="line"></span><br><span class="line">keFetch(getSigUrl, &#123;</span><br><span class="line">    method: <span class="string">'GET'</span>,</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.handleSig(data.userSig)</span><br><span class="line">&#125;).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//抽象代码</span></span><br><span class="line"><span class="keyword">const</span> WEBRTCRIGHTFLAG = &#123;</span><br><span class="line">    ALL: <span class="number">255</span>, <span class="comment">// 所有权限，可以上行</span></span><br><span class="line">    WATCH: <span class="number">171</span>, <span class="comment">// 只能下行</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">const</span> params = &#123;</span><br><span class="line">    sdk_appid: CLOUDSDKAPPID,</span><br><span class="line">    term_id: termId,</span><br><span class="line">    <span class="comment">// 判断只是收看，还是需要互动上麦</span></span><br><span class="line">    uint64_want_privilege_map: !<span class="keyword">this</span>.needGetAllRight ? WEBRTCRIGHTFLAG.WATCH : WEBRTCRIGHTFLAG.ALL,</span><br><span class="line">    platform: PLATFORM.WEB,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> getSigUrl = <span class="string">`获取签名的CGI请求地址`</span>;</span><br><span class="line"></span><br><span class="line">keFetch(getSigUrl, &#123;</span><br><span class="line">    method: <span class="string">'GET'</span>,</span><br><span class="line">&#125;).then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.handleSig(data.userSig)</span><br><span class="line">&#125;).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <p>学生在不同阶段时根据当前需要，在获取UserSig时指定privilege_map参数。</p>
 <p>最后结合举手业务流程和上麦的SDK调用流程，梳理总结出下面的流程图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./img/2020-03-10-00-14-18.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -406,7 +414,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2020-03-15T12:18:29.039Z" itemprop="dateUpdated">2020-03-15 20:18:29</time>
+    最后更新时间：<time datetime="2020-03-22T08:53:39.319Z" itemprop="dateUpdated">2020-03-22 16:53:39</time>
 </span><br>
 
 
@@ -568,7 +576,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
